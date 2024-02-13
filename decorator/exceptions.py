@@ -1,0 +1,2 @@
+class WeightClassError(Exception):
+    pass
