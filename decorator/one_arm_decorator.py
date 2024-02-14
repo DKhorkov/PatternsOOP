@@ -2,9 +2,9 @@ from decorator import Decorator
 from configs import DecoratorsMultipliers
 
 
-class OneArmedDecorator(Decorator):
+class OneArmDecorator(Decorator):
     """
-    Decreases powerlifter's strength via reduced stability due to having only one hand.
+    Decreases powerlifter's strength via reduced stability due to having only one arm.
     """
 
     def get_deadlift_weight(self) -> float:

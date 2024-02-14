@@ -1,5 +1,5 @@
 from heavyweight_powerlifter import HeavyWeightPowerLifter
-from one_armed_decorator import OneArmedDecorator
+from one_arm_decorator import OneArmDecorator
 from anabolic_decorator import AnabolicDecorator
 from hungover_decorator import HungoverDecorator
 from exceptions import WeightClassError
@@ -23,7 +23,7 @@ class Implementation:
         return deadlift_weight
 
     def one_armed_deadlift(self) -> float:
-        deadlift_weight = OneArmedDecorator(self.__powerlifter).get_deadlift_weight()
+        deadlift_weight = OneArmDecorator(self.__powerlifter).get_deadlift_weight()
         print(f'The powerlifter with one arm was able to make a deadlift of {deadlift_weight:.2f}.')
         return deadlift_weight
 
@@ -34,7 +34,7 @@ class Implementation:
 
     def mixed_deadlift(self) -> float:
         deadlift_weight = AnabolicDecorator(
-            OneArmedDecorator(
+            OneArmDecorator(
                 HungoverDecorator(
                     self.__powerlifter
                 )

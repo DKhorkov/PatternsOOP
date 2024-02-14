@@ -1,4 +1,7 @@
 from .decorator import Decorator
+from .one_arm_decorator import OneArmDecorator
+from .anabolic_decorator import AnabolicDecorator
+from .hungover_decorator import HungoverDecorator
 from .powerlifter import PowerLifter
 from .heavyweight_powerlifter import HeavyWeightPowerLifter
 
