@@ -1,4 +1,5 @@
 from .factory_method import AbstractFactory
+from .prototype import PrototypeFactory
 
 """
 Abstract Factory is a generative design pattern that allows to create families of related objects
