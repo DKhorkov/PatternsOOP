@@ -5,7 +5,7 @@ from hungover_decorator import HungoverDecorator
 from exceptions import WeightClassError
 
 
-class Implementation:
+class Example:
 
     def __init__(self) -> None:
         self.__powerlifter: HeavyWeightPowerLifter = HeavyWeightPowerLifter(weight=115)
@@ -49,9 +49,9 @@ class Implementation:
 
 
 if __name__ == '__main__':
-    implementation = Implementation()
-    implementation.weight_class_violation()
-    anabolic_deadlift = implementation.anabolic_deadlift()
-    one_armed_deadlift = implementation.one_armed_deadlift()
-    hungover_deadlift = implementation.hungover_deadlift()
-    mixed_deadlift = implementation.mixed_deadlift()
+    example = Example()
+    example.weight_class_violation()
+    anabolic_deadlift = example.anabolic_deadlift()
+    one_armed_deadlift = example.one_armed_deadlift()
+    hungover_deadlift = example.hungover_deadlift()
+    mixed_deadlift = example.mixed_deadlift()

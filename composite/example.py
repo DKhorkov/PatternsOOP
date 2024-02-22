@@ -2,7 +2,7 @@ from detail import Detail
 from composite import Composite
 
 
-class Implementation:
+class Example:
 
     def __init__(self):
         self.__processor = Detail(price=500)
@@ -56,6 +56,6 @@ class Implementation:
 
 
 if __name__ == '__main__':
-    implementation = Implementation()
-    user_pc = implementation.build_user_pc()
-    server_room = implementation.build_server_room(number_of_pc=5)
+    example = Example()
+    user_pc = example.build_user_pc()
+    server_room = example.build_server_room(number_of_pc=5)

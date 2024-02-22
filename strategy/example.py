@@ -7,7 +7,7 @@ from regular_tax_strategy import RegularTaxStrategy
 from exceptions import TaxLawsViolationsException
 
 
-class Implementation:
+class Example:
 
     def __init__(self, salary: float, name: AnyStr = 'John', surname: AnyStr = 'Smith') -> None:
         self.__employee = Employee(name=name, surname=surname, salary=salary)
@@ -32,25 +32,25 @@ class Implementation:
 
 
 if __name__ == '__main__':
-    implementation = Implementation(salary=1_000_000)
-    implementation.regular_tax()
-    implementation.self_employed_tax()
-    implementation.solo_trader_tax()
+    example = Example(salary=1_000_000)
+    example.regular_tax()
+    example.self_employed_tax()
+    example.solo_trader_tax()
 
     # Excess tax_calculations:
-    implementation = Implementation(salary=200_000_000)
-    implementation.solo_trader_tax()
-    implementation = Implementation(salary=10_000_000)
-    implementation.regular_tax()
+    example = Example(salary=200_000_000)
+    example.solo_trader_tax()
+    example = Example(salary=10_000_000)
+    example.regular_tax()
 
     # Tax after restrictions breakdown:
-    implementation = Implementation(salary=280_000_000)
+    example = Example(salary=280_000_000)
     try:
-        implementation.self_employed_tax()
+        example.self_employed_tax()
     except TaxLawsViolationsException as e:
         print(e)
 
     try:
-        implementation.solo_trader_tax()
+        example.solo_trader_tax()
     except TaxLawsViolationsException as e:
         print(e)

@@ -2,7 +2,7 @@ from potato_field import PotatoField
 from rectangle import Rectangle
 
 
-class Implementation:
+class Example:
     """
     Since both the potato field and the rectangle were inherited from AreaMixin,
     they can use the area calculation method.
@@ -25,6 +25,6 @@ class Implementation:
 
 
 if __name__ == '__main__':
-    implementation = Implementation()
-    implementation.rectangle.draw()
-    implementation.potato_filed.plow()
+    example = Example()
+    example.rectangle.draw()
+    example.potato_filed.plow()

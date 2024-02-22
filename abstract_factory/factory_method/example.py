@@ -8,7 +8,7 @@ from container import Container
 from exceptions import InvalidDrinkError, ContainerOverflowError
 
 
-class Implementation:
+class Example:
 
     def __init__(self):
         self.__abstract_factory: Optional[AbstractFactory] = None
@@ -57,8 +57,8 @@ class Implementation:
 
 
 if __name__ == "__main__":
-    implementation: Implementation = Implementation()
-    tea: Container = implementation.get_tea()
-    coffee: Container = implementation.get_coffee()
-    implementation.fill_invalid_drink()
-    implementation.overflow_container()
+    example: Example = Example()
+    tea: Container = example.get_tea()
+    coffee: Container = example.get_coffee()
+    example.fill_invalid_drink()
+    example.overflow_container()

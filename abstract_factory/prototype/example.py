@@ -10,7 +10,7 @@ from cup import Cup
 from exceptions import InvalidDrinkError, ContainerOverflowError, UnegisteredPrototypeError
 
 
-class Implementation:
+class Example:
 
     def __init__(self):
         self.__abstract_factory: PrototypeFactory = PrototypeFactory()
@@ -113,10 +113,10 @@ class Implementation:
 
 
 if __name__ == "__main__":
-    implementation: Implementation = Implementation()
-    tea: Container = implementation.get_tea()
-    coffee: Container = implementation.get_coffee()
-    implementation.fill_invalid_drink()
-    implementation.overflow_container()
-    implementation.create_unregistered_exemplar()
-    implementation.unregister_not_registered_exemplar()
+    example: Example = Example()
+    tea: Container = example.get_tea()
+    coffee: Container = example.get_coffee()
+    example.fill_invalid_drink()
+    example.overflow_container()
+    example.create_unregistered_exemplar()
+    example.unregister_not_registered_exemplar()
