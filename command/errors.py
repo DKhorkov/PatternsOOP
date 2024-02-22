@@ -1,0 +1,2 @@
+class InvalidButtonError(Exception):
+    pass
