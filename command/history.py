@@ -12,9 +12,7 @@ class History:
 
     def add_command(self, command: 'Command') -> None:
         """
-        If command is already in history and needs to be redone, just increases current command index.
-
-        Elif multiple commands were executed and some of them were undid,
+        If multiple commands were executed and some of them were undid,
         deletes undid commands from history and adds new one.
 
         In base case just adds new command to history.
@@ -22,11 +20,7 @@ class History:
         :param command: New command, that was executed.
         """
 
-        if self.__commands and self.__check_current_command_index() and self.__get_redo_command() == command:
-            self.__current_command_index += 1
-            return
-
-        elif self.__check_current_command_index():
+        if self.__check_current_command_index():
             self.__commands = self.__commands[: self.__current_command_index + 1]
 
         self.__commands.append(command)
@@ -42,6 +36,7 @@ class History:
         if self.__check_current_command_index():
             command = self.__get_redo_command()
             command.execute()
+            self.__current_command_index += 1
 
     def __check_current_command_index(self) -> bool:
         """

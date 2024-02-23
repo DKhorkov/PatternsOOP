@@ -10,9 +10,10 @@ from history import History
 
 class Command(ABC):
 
-    def __init__(self, game_engine: GameEngine, history: History) -> None:
+    def __init__(self, game_engine: GameEngine) -> None:
         self._game_engine: GameEngine = game_engine
-        self._history: History = history
+
+        self._undoable: bool = False
 
     @abstractmethod
     def execute(self) -> None:
@@ -21,11 +22,18 @@ class Command(ABC):
     def cancel(self) -> None:
         raise NotImplementedError
 
+    @property
+    def undoable(self) -> bool:
+        return self._undoable
+
 
 class MoveLeftCommand(Command):
 
+    def __init__(self, game_engine: GameEngine) -> None:
+        super().__init__(game_engine)
+        self._undoable: bool = True
+
     def execute(self) -> None:
-        self._history.add_command(self)
         self._game_engine.x_pos -= MOVE_STEP
 
     def cancel(self) -> None:
@@ -34,8 +42,11 @@ class MoveLeftCommand(Command):
 
 class MoveRightCommand(Command):
 
+    def __init__(self, game_engine: GameEngine) -> None:
+        super().__init__(game_engine)
+        self._undoable: bool = True
+
     def execute(self) -> None:
-        self._history.add_command(self)
         self._game_engine.x_pos += MOVE_STEP
 
     def cancel(self) -> None:
@@ -44,8 +55,11 @@ class MoveRightCommand(Command):
 
 class MoveForwardCommand(Command):
 
+    def __init__(self, game_engine: GameEngine) -> None:
+        super().__init__(game_engine)
+        self._undoable: bool = True
+
     def execute(self) -> None:
-        self._history.add_command(self)
         self._game_engine.y_pos += MOVE_STEP
 
     def cancel(self) -> None:
@@ -54,8 +68,11 @@ class MoveForwardCommand(Command):
 
 class MoveBackCommand(Command):
 
+    def __init__(self, game_engine: GameEngine) -> None:
+        super().__init__(game_engine)
+        self._undoable: bool = True
+
     def execute(self) -> None:
-        self._history.add_command(self)
         self._game_engine.y_pos -= MOVE_STEP
 
     def cancel(self) -> None:
@@ -70,11 +87,19 @@ class PrintPositionCommand(Command):
 
 class UndoCommand(Command):
 
+    def __init__(self, game_engine: GameEngine, history: History) -> None:
+        super().__init__(game_engine)
+        self._history: History = history
+
     def execute(self) -> None:
         self._history.undo()
 
 
 class RedoCommand(Command):
+
+    def __init__(self, game_engine: GameEngine, history: History) -> None:
+        super().__init__(game_engine)
+        self._history: History = history
 
     def execute(self) -> None:
         self._history.redo()
