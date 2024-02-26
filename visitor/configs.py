@@ -1,4 +1,5 @@
 from enum import Enum
+from pathlib import Path
 
 
 class TaxRates(Enum):
@@ -7,3 +8,5 @@ class TaxRates(Enum):
 
 
 MONTHS_PER_YEAR: int = 12
+
+EXPORTED_DATA_FOLDER: Path = Path('exported_data')

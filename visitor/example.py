@@ -1,9 +1,11 @@
 from typing import List
 
 from tax_calculate_visitor import TaxCalculateVisitor
+from json_export_visitor import JsonExportVisitor
 from person import Person
 from employee import Employee
 from investor import Investor
+from configs import EXPORTED_DATA_FOLDER
 
 
 class Example:
@@ -53,7 +55,15 @@ class Example:
         print(f'Tax for all persons, connected with company, is {tax:.2f}$.')
         return tax
 
+    def export_to_json(self) -> None:
+        person_visitor: JsonExportVisitor = JsonExportVisitor()
+        for person in self.__persons:
+            person.accept(person_visitor=person_visitor)
+
+        print(f'All persons, connected with company, were exported to JSON and stored to {EXPORTED_DATA_FOLDER} folder.')
+
 
 if __name__ == '__main__':
     example = Example()
+    example.export_to_json()
     example.calculate_tax()
