@@ -26,11 +26,11 @@ class Car:
         car_info: AnyStr = (
             f'A {self.seats} seats and {self.wheels} wheels car with a {self.engine} engine, '
             f'{self.transmission} transmission and {self.breaks} breaks.\n'
-            f'Additional info about this car:\n\n'
-            f'GPS: {self.gps};'
-            f'Conditioner: {self.conditioner};'
-            f'Hatch: {self.hatch};'
-            f'Spoiler: {self}'
+            f'Additional info about this car:\n'
+            f'\tGPS: {self.gps};\n'
+            f'\tConditioner: {self.conditioner};\n'
+            f'\tHatch: {self.hatch};\n'
+            f'\tSpoiler: {self.spoiler}\n'
         )
 
         return car_info

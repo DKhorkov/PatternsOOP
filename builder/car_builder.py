@@ -55,13 +55,13 @@ class CarBuilder:
         return self
 
     def set_conditioner(self) -> Self:
-        self._car.gps = True
+        self._car.conditioner = True
         return self
 
     def set_hatch(self) -> Self:
-        self._car.gps = True
+        self._car.hatch = True
         return self
 
     def set_spoiler(self) -> Self:
-        self._car.gps = True
+        self._car.spoiler = True
         return self
