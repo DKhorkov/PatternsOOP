@@ -32,3 +32,6 @@ class FlyweightFactory:
         )
 
         return plant_flyweight_hash
+
+    def count_flyweights(self) -> int:
+        return len(self.__plant_flyweights)

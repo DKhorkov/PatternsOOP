@@ -5,14 +5,14 @@ from plant_flyweight import PlantFlyweight
 
 class PlantContext:
 
-    def __init__(self, flowering: bool, species: AnyStr, size: AnyStr, plant_flyweight: PlantFlyweight) -> None:
+    def __init__(self, flowering: bool, species: AnyStr, size: AnyStr, flyweight: PlantFlyweight) -> None:
         self.__flowering: bool = flowering
         self.__species: AnyStr = species
         self.__size: AnyStr = size
-        self.__plant_flyweight: PlantFlyweight = plant_flyweight
+        self.__flyweight: PlantFlyweight = flyweight
 
     def describe_plant(self) -> AnyStr:
-        return self.__plant_flyweight.describe_plant(plant_context=self)
+        return self.__flyweight.describe_plant(plant_context=self)
 
     @property
     def flowering(self) -> bool:

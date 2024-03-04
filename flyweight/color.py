@@ -13,5 +13,10 @@ class Color:
 
     def __str__(self) -> AnyStr:
         return STR_SEPARATOR.join(
-            [value for key, value in asdict(self).items()]
+            list(
+                map(
+                    str,
+                    [value for key, value in asdict(self).items()]
+                )
+            )
         )
